@@ -1,0 +1,15 @@
+# config-management.yaml
+
+apiVersion: configmanagement.gke.io/v1
+kind: ConfigManagement
+metadata:
+  name: config-management
+spec:
+  # Set to true to install and enable Policy Controller
+  policyController:
+    enabled: true
+  git:
+    syncRepo: https://github.com/nsabine/anthos-config-mgmt-demo
+    syncBranch: main
+    secretType: none
+    policyDir: "policy"
