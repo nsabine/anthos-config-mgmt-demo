@@ -9,6 +9,10 @@ clear
 # Start Demo
 ########################
 
+pei "# Admin workstation"
+
+pause
+
 # Set active project
 pei "# First, let's set some variables to configure our command line environment..."
 pei "PROJECT_ID=disa-deploy"

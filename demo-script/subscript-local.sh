@@ -18,6 +18,10 @@ ONPREM_KUBECONFIG=/home/ubuntu/user-cluster1-kubeconfig
 gcloud config set project ${PROJECT_ID} > /dev/null 2>&1
 gcloud config set compute/region ${REGION} > /dev/null 2>&1
 
+pei "# Developer workstation"
+
+pause
+
 pei "# Let's push a new change into our configuration management policy"
 pei "# This is going to deploy a new application"
 pei "git checkout -b new-app"
