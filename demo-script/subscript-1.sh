@@ -124,45 +124,37 @@ closeWindow2
 pause 
 
 pei "# Now let's see what ACM can do for us...."
-pei "# The simple policy in our git repository says a namespace should exist called 'hello'."
+pei "# The simple policy in our git repository says a namespace should exist called 'hello.'"
 pei "# Let's see if has been created:"
 pei "kubectl get ns/hello"
 pei "# Looks good!  Now let's see what happens if we allow our configuration to 'drift' by deleting the namespace."
-pei "# I'll start a command to watch the namespaces, then delete 'hello' and see how the system responds!"
+#pei "# I'll start a command to watch the namespaces, then delete 'hello' and see how the system responds!"
 
-runInWindow2 "watch -d kubectl get ns/hello"
-pei "# Ok, now let's delete it"
+#runInWindow2 "watch -d kubectl get ns/hello"
+#pei "# Ok, now let's delete it"
 
 namespaceExists=true
 
 pei "kubectl delete ns/hello"
 
-#while $namespaceExists; do
+echo
+pei "# Our policy admission controller didn't allow us to do that."
+#pei "# See the namespace disappear?  Now let's watch ACM bring it back."
+#
+#while ! $namespaceExists; do
 #  echo -n "."
-#  kubectl get ns/hello
-#  if [ $? -gt 0 ]; then
-#    namespaceExists=false
-#  fi
 #  sleep 1
+#  kubectl get ns/hello
+#  if [ $? -eq 0 ]; then
+#    namespaceExists=true
+#  fi
 #done
-
-echo
-pei "# See the namespace disappear?  Now let's watch ACM bring it back."
-
-while ! $namespaceExists; do
-  echo -n "."
-  sleep 1
-  kubectl get ns/hello
-  if [ $? -eq 0 ]; then
-    namespaceExists=true
-  fi
-done
-echo
-pei "# Success!  Anthos Config Management noticed the drift and corrected it."
-
-sleep 3
-
-closeWindow2
+#echo
+#pei "# Success!  Anthos Config Management noticed the drift and corrected it."
+#
+#sleep 3
+#
+#closeWindow2
 
 pause
 
@@ -175,13 +167,15 @@ pause
 
 pei "kubectl get constrainttemplate k8spspprivilegedcontainer -o jsonpath='{.spec}'"
 
+echo
+echo
 pei "# This disallows privileged containers.  Cool!"
 
 pause
 
 pei "# Now let's make a new deployment.  A developer has a proposed new app."
 pei "# We're going to watch the configuration sync on the server side, while the developer does their work."
-pei "watch -n 5 gcloud alpha conainer hub config-management status"
+pei "watch -n 5 gcloud alpha container hub config-management status"
 
 pei "# Now let's see the status of the deployment..."
 pei "watch -n 5 kubectl get all -n dlp"
@@ -189,8 +183,10 @@ pei "watch -n 5 kubectl get all -n dlp"
 
 pause
 
+pei "# And let's check the logs to make sure everything came up cleanly..."
+pei "kubectl logs deployment.apps/dlp-server-deployment -n dlp"
 
-
+pause
 
 
 #pei "# Now, let's install Anthos Service Mesh"
