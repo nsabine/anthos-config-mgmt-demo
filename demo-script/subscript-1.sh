@@ -177,7 +177,7 @@ else
 fi 
 
 pei "# Get Kubernetes credentials"
-pei "gcloud container clusters get-credentials ${CLUSTER_NAME} --region=${REGION}"
+pei "gcloud container clusters get-credentials ${CLUSTER_NAME} --zone=${ZONE}"
 
 pei "# We now have a Kubernetes cluster running and ready."
 pei "# Let's kick the tires..."
