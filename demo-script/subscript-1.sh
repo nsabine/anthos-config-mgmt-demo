@@ -58,6 +58,8 @@ if [ "$?" -gt "0" ]; then
 fi
 
 if [ ${error} ]; then
+  echo "Errors reported.  Press Enter to exit"
+  read -rs 
   exit 1
 fi
 
