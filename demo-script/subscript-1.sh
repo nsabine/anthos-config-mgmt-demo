@@ -314,21 +314,21 @@ pei "# This disallows privileged containers.  Cool!"
 
 pause
 
-pei "# Now, let's install Anthos Service Mesh"
-if [ ! -f install_asm ]; then
-  curl -s https://storage.googleapis.com/csm-artifacts/asm/install_asm_1.9 > install_asm
-fi
-
-if [ ! -x install_asm ]; then
-  chmod u+x install_asm
-fi
-
-kubectl get ns asm-system > /dev/null 2>&1
-if [ "$?" -gt "0" ]; then
-  pei "./install_asm --project_id $PROJECT_ID --cluster_name $CLUSTER_NAME --cluster_location $REGION --mode install --enable_all"
-else
-  pei "# ... Anthos Service Mesh is already installed and ready!"
-fi
+#pei "# Now, let's install Anthos Service Mesh"
+#if [ ! -f install_asm ]; then
+#  curl -s https://storage.googleapis.com/csm-artifacts/asm/install_asm_1.9 > install_asm
+#fi
+#
+#if [ ! -x install_asm ]; then
+#  chmod u+x install_asm
+#fi
+#
+#kubectl get ns asm-system > /dev/null 2>&1
+#if [ "$?" -gt "0" ]; then
+#  pei "./install_asm --project_id $PROJECT_ID --cluster_name $CLUSTER_NAME --cluster_location $REGION --mode install --enable_all"
+#else
+#  pei "# ... Anthos Service Mesh is already installed and ready!"
+#fi
 
 pei "# Demo complete"
 
