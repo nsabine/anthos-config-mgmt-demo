@@ -150,6 +150,8 @@ pei "PROJECT_ID=disa-deploy"
 pei "REGION=us-central1"
 pei "ZONE=us-central1-c"
 pei "CLUSTER_NAME=gke-cluster"
+pei "ONPREM_CLUSTER_NAME=user-cluster1"
+pei "ONPREM_KUBECONFIG=/home/ubuntu/user-cluster1-kubeconfig"
 pei "gcloud config set project ${PROJECT_ID}"
 pei "gcloud config set compute/region ${REGION}"
 
@@ -207,11 +209,20 @@ else
   pei "# ... Anthos Config Management membership already exists, moving on..."
 fi
 
+pei "# Register On-Prem Cluster with Anthos Config Management..."
+gcloud beta container hub memberships describe ${ONPREM_CLUSTER_NAME} > /dev/null 2>&1
+if [ "$?" -gt "0" ]; then
+  pei "gcloud beta container hub memberships register ${ONPREM_CLUSTER_NAME} --kubeconfig=${ONPREM_KUBECONFIG} --enable-workload-identity"
+else
+  pei "# ... Anthos Config Management membership already exists, moving on..."
+fi
+
 pei "# Retrieve config management configuration from the git repository"
 pei "curl -s -O https://raw.githubusercontent.com/nsabine/anthos-config-mgmt-demo/main/config-management.yaml"
 
-pei "# ... and apply the configuration to the cluster"
+pei "# ... and apply the configuration to the clusters"
 pei "gcloud alpha container hub config-management apply --membership=${CLUSTER_NAME} --config=config-management.yaml --project=$PROJECT_ID"
+pei "gcloud alpha container hub config-management apply --membership=${ONPREM_CLUSTER_NAME} --config=config-management.yaml --project=$PROJECT_ID"
 
 pause
 
