@@ -179,6 +179,20 @@ pei "# This disallows privileged containers.  Cool!"
 
 pause
 
+pei "# Now let's make a new deployment.  A developer has a proposed new app."
+pei "# We're going to watch the configuration sync on the server side, while the developer does their work."
+pei "watch -n 5 gcloud alpha conainer hub config-management status"
+
+pei "# Now let's see the status of the deployment..."
+pei "watch -n 5 kubectl get all -n dlp"
+
+
+pause
+
+
+
+
+
 #pei "# Now, let's install Anthos Service Mesh"
 #if [ ! -f install_asm ]; then
 #  curl -s https://storage.googleapis.com/csm-artifacts/asm/install_asm_1.9 > install_asm

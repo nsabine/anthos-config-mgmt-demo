@@ -100,5 +100,9 @@ pei "git push --set-upstream origin new-app"
 
 pause
 
+pei "# Now Create the Pull Request, Review, and Merge the code:"
+pei # https://github.com/nsabine/anthos-config-mgmt-demo/pull/new/new-app
+
+
 popd 
 
