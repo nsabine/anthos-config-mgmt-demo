@@ -34,7 +34,7 @@ if [ "$?" -gt "0" ]; then
   error=true
 fi
 
-brew list jq > /dev/null 2>&1
+which jq > /dev/null 2>&1
 if [ "$?" -gt "0" ]; then
   echo "Please install jq:"
   echo  "  $ brew install jq"
