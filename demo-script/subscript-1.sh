@@ -13,22 +13,21 @@ FAST=false
 ########################
 # include the magic
 ########################
-if [ -f ~/Documents/demo-magic/demo-magic.sh ]; then
-  . ~/Documents/demo-magic/demo-magic.sh
+if [ -f ./demo-magic/demo-magic.sh ]; then
+  . ./demo-magic/demo-magic.sh
 else
-  echo "Please install demo-magic:"
-  echo "  $ cd ~/Documents; git clone https://github.com/paxtonhare/demo-magic.git"
+  echo "Please make sure demo-magic is available. It should be included as a submodule here."
   error=true
 fi
 
-brew list watch > /dev/null 2>&1
+which watch > /dev/null 2>&1
 if [ "$?" -gt "0" ]; then
   echo "Please install watch: "
   echo  "  $ brew install watch"
   error=true
 fi
 
-brew list pv > /dev/null 2>&1
+which pv > /dev/null 2>&1
 if [ "$?" -gt "0" ]; then
   echo "Please install pv:"
   echo  "  $ brew install pv"
@@ -39,6 +38,7 @@ brew list jq > /dev/null 2>&1
 if [ "$?" -gt "0" ]; then
   echo "Please install jq:"
   echo  "  $ brew install jq"
+  echo  "  $ apt-get install jq"
   error=true
 fi
 
