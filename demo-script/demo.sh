@@ -9,7 +9,7 @@ if [ $? -gt 0 ]; then
   tmux -S /tmp/demo-session.sock new-session -d -s demo-session './subscript-local.sh'
 else
   echo "on gke"
-  tmux -S /tmp/demo-session.sock new-session -d -s demo-session './subscript-1.sh'
+  tmux -S /tmp/demo-session.sock new-session -d -s demo-session './subscript-gke.sh'
 fi
 
 
