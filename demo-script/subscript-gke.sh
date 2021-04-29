@@ -11,7 +11,8 @@ clear
 
 pei "# Admin workstation"
 
-pause
+echo "Press Enter to Begin"
+read -rs
 
 # Set active project
 pei "# First, let's set some variables to configure our command line environment..."

@@ -20,7 +20,8 @@ gcloud config set compute/region ${REGION} > /dev/null 2>&1
 
 pei "# Developer workstation"
 
-pause
+echo "Press Enter to Begin"
+read -rs
 
 pei "# Let's push a new change into our configuration management policy"
 pei "# This is going to deploy a new application"
