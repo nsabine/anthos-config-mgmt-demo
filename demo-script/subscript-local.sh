@@ -109,5 +109,9 @@ pei "# Now Create the Pull Request, Review, and Merge the code:"
 pei "# https://github.com/nsabine/anthos-config-mgmt-demo/pull/new/new-app"
 
 
+pause
+
+pei "# Demo complete"
+
 popd 
 
