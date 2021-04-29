@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dlp-server-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dlp-server
+  template:
+    metadata:
+      labels:
+        app: dlp-server
+    spec:
+      containers:
+      - name: dlp-server
+        image: gcr.io/disa-deploy/dlp_service_golden_backup:latest
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+          name: "grpc"
+        - containerPort: 8081
+          protocol: TCP
+          name: "cloud-grpc"
+        args:
+        - "--grpc_port=8080"
+        - "--cloud_grpc_port=8081"
+        - "--thread_pool_size=1"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dlp-lb
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+    name: grpc
+  selector:
+    app: dlp-server
+  type: LoadBalancer
