@@ -83,7 +83,7 @@ spec:
   type: LoadBalancer
 EOF
 
-pei "# First, we create the namepsace"
+pei "# First, we create the namespace"
 pei "cat namespace.yaml"
 
 pause
