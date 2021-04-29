@@ -25,4 +25,3 @@ spec:
         args:
         - "--grpc_port=8080"
         - "--cloud_grpc_port=8081"
-        - "--thread_pool_size=1"
