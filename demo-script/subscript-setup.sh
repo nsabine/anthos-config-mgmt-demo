@@ -5,7 +5,7 @@ clear
 echo "Starting Configuration Management Demo..."
 
 # Should the demo continue automatically?
-AUTO=false
+AUTO=true
 
 # Go fast?
 FAST=false
