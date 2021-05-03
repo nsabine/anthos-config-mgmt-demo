@@ -108,7 +108,7 @@ pause
 
 pei "# Now we watch and wait for Status SYNCED.  It will show ERROR state while the pods initialize.  This will take a few moments."
 
-runInWindow2 "watch -n 15 'gcloud alpha container hub config-management status --project=$PROJECT_ID'"
+runInWindow2 "watch 'gcloud alpha container hub config-management status --project=$PROJECT_ID'"
 
 SYNCED=false
 
@@ -188,10 +188,10 @@ pause
 
 pei "# Now let's make a new deployment.  A developer has a proposed new app."
 pei "# We're going to watch the configuration sync on the server side, while the developer does their work."
-pei "watch -n 5 gcloud alpha container hub config-management status"
+pei "watch gcloud alpha container hub config-management status"
 
 pei "# Now let's see the status of the deployment..."
-pei "watch -n 5 kubectl get all -n dlp"
+pei "watch kubectl get all -n dlp"
 
 
 pause
