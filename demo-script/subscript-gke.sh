@@ -124,9 +124,9 @@ echo
 
 pei "# Great, status is SYNCED, and we're ready to go!"
 
-closeWindow2
-
 pause 
+
+closeWindow2
 
 pei "# Now let's see what ACM can do for us...."
 pei "# The simple policy in our git repository says a namespace should exist called 'hello.'"
@@ -165,13 +165,21 @@ pause
 
 pei "# Anthos Configuration Management comes with a set of templates for common constraints."
 pei "# Here's how to retrieve a list of the constraint templates that are pre-installed"
-pei "kubectl get constrainttemplates -l='configmanagement.gke.io/configmanagement=config-management'"
+pei "kubectl get constrainttemplates"
+
+TYPE_SPEED=100
+pei "# Documentation about what these do can be found here:"
+pei "# https://cloud.google.com/anthos-config-management/docs/reference/constraint-template-library"
+TYPE_SPEED=$DEMO_SPEED
+
+echo
 
 pei "# Great, now let's look at one..."
 pause
 
 pei "kubectl get constrainttemplate k8spspprivilegedcontainer -o jsonpath='{.spec}'"
 
+echo
 echo
 echo
 pei "# This disallows privileged containers.  Cool!"
