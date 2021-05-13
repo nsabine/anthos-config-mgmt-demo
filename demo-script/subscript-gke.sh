@@ -182,7 +182,7 @@ pei "kubectl get constrainttemplate k8spspprivilegedcontainer -o jsonpath='{.spe
 echo
 echo
 echo
-pei "# This disallows privileged containers.  Cool!"
+pei "# This shows a policy violation for workloads that request a privileged security context."
 
 pause
 
