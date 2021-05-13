@@ -46,7 +46,7 @@ if [ "$?" -gt "0" ]; then
   pei "gcloud container clusters create ${CLUSTER_NAME} --zone=${ZONE} --workload-pool=${PROJECT_ID}.svc.id.goog --enable-stackdriver-kubernetes"
 else
   TYPE_SPEED=100
-  p "gcloud container clusters create ${CLUSTER_NAME} --zone=${ZONE} --workload-pool=${PROJECT_ID}.svc.id.goog --enable-stackdriver-kubernetes"
+  pi "gcloud container clusters create ${CLUSTER_NAME} --zone=${ZONE} --workload-pool=${PROJECT_ID}.svc.id.goog --enable-stackdriver-kubernetes"
   TYPE_SPEED=$DEMO_SPEED
   pei "# ... the Kubernetes Cluster is already running!"
 fi 
@@ -80,7 +80,7 @@ if [ "$?" -gt "0" ]; then
   pei "gcloud beta container hub memberships register ${CLUSTER_NAME} --gke-cluster=${REGION}/${CLUSTER_NAME} --enable-workload-identity"
 else
   TYPE_SPEED=100
-  p "gcloud beta container hub memberships register ${CLUSTER_NAME} --gke-cluster=${REGION}/${CLUSTER_NAME} --enable-workload-identity"
+  pi "gcloud beta container hub memberships register ${CLUSTER_NAME} --gke-cluster=${REGION}/${CLUSTER_NAME} --enable-workload-identity"
   TYPE_SPEED=$DEMO_SPEED
   pei "# ... Anthos Config Management membership already exists, moving on..."
 fi
@@ -91,7 +91,7 @@ if [ "$?" -gt "0" ]; then
   pei "gcloud beta container hub memberships register ${ONPREM_CLUSTER_NAME} --kubeconfig=${ONPREM_KUBECONFIG} --enable-workload-identity"
 else
   TYPE_SPEED=100
-  p "gcloud beta container hub memberships register ${ONPREM_CLUSTER_NAME} --kubeconfig=${ONPREM_KUBECONFIG} --enable-workload-identity"
+  pi "gcloud beta container hub memberships register ${ONPREM_CLUSTER_NAME} --kubeconfig=${ONPREM_KUBECONFIG} --enable-workload-identity"
   TYPE_SPEED=$DEMO_SPEED
   pei "# ... Anthos Config Management membership already exists, moving on..."
 fi

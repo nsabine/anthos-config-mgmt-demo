@@ -109,6 +109,10 @@ function runInWindow2() {
   tmux -S /tmp/demo-session.sock send -t 1 "$1" ENTER
 }
 
+function pi {
+  NO_WAIT=true p "$@"
+}
+
 ########################
 # Configure the options
 ########################
