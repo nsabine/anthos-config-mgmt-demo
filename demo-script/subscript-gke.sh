@@ -51,6 +51,8 @@ else
   pei "# ... the Kubernetes Cluster is already running!"
 fi 
 
+pause
+
 pei "# Get Kubernetes credentials"
 pei "gcloud container clusters get-credentials ${CLUSTER_NAME} --zone=${ZONE}"
 
