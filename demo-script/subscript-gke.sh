@@ -112,11 +112,14 @@ pause
 pei "# Let's take a look at what that's doing."
 pei "cat config-management.yaml"
 
+
+TYPE_SPEED=100
+echo
 pei "# Key points are:"
 pei "# 1. It's a Kubernetes yaml"
 pei "# 2. It enables the Policy Controller, which is an admission controller that enforces compliance with policies."
 pei "# 3. It points to a Git repo for the policy."
-
+TYPE_SPEED=$DEMO_SPEED
 pause 
 
 pei "# Now we watch and wait for Status SYNCED.  It will show ERROR state while the pods initialize.  This will take a few moments."
