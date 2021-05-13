@@ -98,6 +98,8 @@ else
   pei "# ... Anthos Config Management membership already exists, moving on..."
 fi
 
+pause
+
 pei "# Retrieve config management configuration from the git repository"
 pei "curl -s -O https://raw.githubusercontent.com/nsabine/anthos-config-mgmt-demo/main/config-management.yaml"
 
