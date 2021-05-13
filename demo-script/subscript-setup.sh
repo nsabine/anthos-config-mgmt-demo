@@ -131,7 +131,8 @@ TYPE_SPEED=$DEMO_SPEED
 #
 # see http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html for escape sequences
 #
-DEMO_PROMPT="${GREEN}➜ ${CYAN}\W "
+# DEMO_PROMPT="${GREEN}➜ ${CYAN}\W "
+DEMO_PROMPT="${GREEN}➜ ${CYAN}disa-tem "
 
 # text color
 # DEMO_CMD_COLOR=${BLACK}
