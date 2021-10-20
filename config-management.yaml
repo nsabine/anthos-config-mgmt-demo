@@ -3,7 +3,7 @@ applySpecVersion: 1
 spec:
   configSync:
     enabled: true
-	  sourceFormat: hierarchy
+    sourceFormat: hierarchy
     syncRepo: https://github.com/nsabine/anthos-config-mgmt-demo
     syncBranch: main
     secretType: none
