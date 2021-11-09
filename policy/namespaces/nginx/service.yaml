@@ -5,8 +5,6 @@ metadata:
   namespace: "nginx"
   labels:
     app: "nginx"
-    app.kubernetes.io/managed-by: "configmanagement.gke.io"
-    configsync.gke.io/declared-version: "v1"
 spec:
   ports:
   - protocol: "TCP"
